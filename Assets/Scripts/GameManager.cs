@@ -21,6 +21,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
+    public GameObject introBackground;
+    public void StartGame()
+    {
+        introBackground.SetActive(false);
+    }
+
     public void WinGame()
     {
 
