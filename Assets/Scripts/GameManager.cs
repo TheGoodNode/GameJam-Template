@@ -23,6 +23,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+
+    }
 
     public GameObject introBackground;
     public void StartGame()
@@ -33,7 +37,7 @@ public class GameManager : MonoBehaviour
 
     public void WinGame()
     {
-
+      
     }
 
     public void RestartGame()
