@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance = null;
 
+    [HideInInspector]public bool gameIsOn = false;
+
     private void Awake()
     {
         if (instance == null)
@@ -26,6 +28,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         introBackground.SetActive(false);
+        gameIsOn = true;
     }
 
     public void WinGame()
@@ -40,7 +43,7 @@ public class GameManager : MonoBehaviour
 
     public void LoseGame()
     {
-
+        gameIsOn = false;
     }
 
     public void ExitGame()
