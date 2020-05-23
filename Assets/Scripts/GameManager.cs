@@ -8,7 +8,9 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance = null;
 
-    [HideInInspector]public bool gameIsOn = false;
+    Tutorial tutorialSystem;
+
+    [HideInInspector] public bool gameIsOn = false;
 
     private void Awake()
     {
@@ -25,7 +27,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-
+        tutorialSystem = GameManager.instance.GetComponent<Tutorial>();
     }
 
     public GameObject introBackground;
@@ -37,7 +39,7 @@ public class GameManager : MonoBehaviour
 
     public void WinGame()
     {
-      
+
     }
 
     public void RestartGame()
