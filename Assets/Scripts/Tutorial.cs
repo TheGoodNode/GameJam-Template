@@ -11,15 +11,7 @@ public class Tutorial : MonoBehaviour
 
     void Start()
     {
-        foreach (Transform tutorialNode in tutorialMainNode.transform)
-        {
-            tutorials.Add(tutorialNode.GetComponent<GameObject>());
-        }
-        foreach (var tutorial in tutorials)
-        {
-            tutorial.SetActive(false);
-        }
-        ShowFirstTutorial();
+        PrepareTutorials();
     }
 
     public void SwitchToNextTutorial()
@@ -49,5 +41,19 @@ public class Tutorial : MonoBehaviour
     private void HideTutorial()
     {
         tutorials[currentTutorialToShow].SetActive(false);
+    }
+
+    private void PrepareTutorials()
+    {
+        if(tutorialMainNode.transform.childCount <= 0) return;
+        foreach (Transform tutorialNode in tutorialMainNode.transform)
+        {
+            tutorials.Add(tutorialNode.GetComponent<GameObject>());
+        }
+        foreach (var tutorial in tutorials)
+        {
+            tutorial.SetActive(false);
+        }
+        ShowFirstTutorial();
     }
 }
