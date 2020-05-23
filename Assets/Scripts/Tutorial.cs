@@ -19,8 +19,10 @@ public class Tutorial : MonoBehaviour
 
     public void SwitchToNextTutorial()
     {
+        //Handles deactivating last tutorial
         if (currentTutorialToShow == tutorials.Length - 1)
         {
+            HideTutorial();
             Debug.LogWarning("The amount of tutorials are finished");
             return;
         }
