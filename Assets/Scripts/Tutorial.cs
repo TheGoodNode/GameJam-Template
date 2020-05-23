@@ -5,11 +5,16 @@ using UnityEngine;
 public class Tutorial : MonoBehaviour
 {
 
-    public GameObject[] tutorials;
+    public GameObject tutorialMainNode;
+    List<GameObject> tutorials = new List<GameObject>();
     private int currentTutorialToShow = 0;
 
     void Start()
     {
+        foreach (Transform tutorialNode in tutorialMainNode.transform)
+        {
+            tutorials.Add(tutorialNode.GetComponent<GameObject>());
+        }
         foreach (var tutorial in tutorials)
         {
             tutorial.SetActive(false);
@@ -20,7 +25,7 @@ public class Tutorial : MonoBehaviour
     public void SwitchToNextTutorial()
     {
         //Handles deactivating last tutorial
-        if (currentTutorialToShow == tutorials.Length - 1)
+        if (currentTutorialToShow == tutorials.Count - 1)
         {
             HideTutorial();
             Debug.LogWarning("The amount of tutorials are finished");
